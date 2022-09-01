@@ -1,0 +1,29 @@
+body {
+  margin: 30px;
+}
+
+.timer-label {
+  /* padding: 10px; */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.timer-input {
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.submit-button {
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  /* color: white; */
+  background-color: lightgrey;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: rgb(172, 172, 172);
+}
