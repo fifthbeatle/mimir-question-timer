@@ -3,8 +3,11 @@
 ## Description
 Chrome extension to add a timer onto the Wikiquiz scoring page and make passing order sticky
 
+## Version History
+05.11.2022: Make the timer settings customisable. Time can be set anywhere between 0 and 60 seconds.
+
 ## Instructions for installation
-1. Download the zip file `mimir-question-timer.7z`.
+1. Download the zip file `mimir-question-timer.7z` using the Code button and Download Zip.
 2. Extract it to a folder `mimir-question-timer`.
 3. Open your Extensions page in Chrome either by going to `chrome://extensions` or by selection "More tools" -> "Extensions" from the Chrome menu.
 4. Switch on "Developer Mode" in the top right corner.
