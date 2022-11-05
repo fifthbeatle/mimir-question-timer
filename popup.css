@@ -2,6 +2,12 @@ body {
   margin: 30px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
 .timer-label {
   /* padding: 10px; */
   margin-bottom: 10px;
@@ -26,4 +32,12 @@ body {
 
 .submit-button:hover {
   background-color: rgb(172, 172, 172);
+}
+
+.error-message {
+  color: red;
+}
+
+.error-message-hidden {
+  display: none;
 }
