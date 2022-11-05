@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mimir Timer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <label for="start-duration" class="timer-label">DIRECT (0-60 sec):</label>
+    <input type="number" name="start-duration" value="30" class="timer-input" id="input-timer-start" min="0" max="60" />
+    <label for="pass-duration" class="timer-label">PASS (0-60 sec):</label>
+    <input type="number" name="pass-duration" value="5" class="timer-input" id="input-timer-pass" min="0" max="60" />
+    <button class="submit-button" id="submit-button">SET TIMER</button>
+    <p class="error-message error-message-hidden">Please enter the starting a value between 0-60 for starting and
+      passing times</p>
+  </div>
+  <script src=" popup.js">
+  </script>
+</body>
+
+</html>
