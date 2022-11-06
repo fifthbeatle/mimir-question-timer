@@ -4,6 +4,7 @@
 Chrome extension to add a timer onto the Wikiquiz scoring page and make passing order sticky
 
 ## Version History
+06.11.2022: v1.1.0 - Option to hide the display of the standard clock as it was confusing some players.
 05.11.2022: Make the timer settings customisable. Time can be set anywhere between 0 and 60 seconds.
 
 ## Instructions for installation

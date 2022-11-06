@@ -106,16 +106,27 @@ const setButtonActions = () => {
   killButton.addEventListener("click", correctButtonHandler)
 }
 
+const hideClock = () => {
+  const $clock = $(".cell.w24.h7.ng-scope input");
+  $clock.css("color", "rgb(240, 240, 240)")
+}
+
 chrome.runtime.onMessage.addListener((request, _sender, _response) => {
   startTimeValue = request.startTimeValue
   passTimeValue = request.passTimeValue
+
+  removeClock = request.removeClock
 
   if ($("#timer-button").length == 0) {
     createNewButton("Start Timer")
   } else {
     console.log("Button already exists.")
   }
-  removeClockStickiness()
+  if(removeClock) {
+    hideClock()
+  } else {
+    removeClockStickiness()
+  }
   makePassingOrderSticky()
   setButtonActions()
 

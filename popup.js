@@ -14,7 +14,8 @@ submitButton.addEventListener("click", (e) => {
         chrome.tabs.sendMessage(tabs[0].id, {
           type: "CREATE_BUTTON",
           startTimeValue: startTime,
-          passTimeValue: passTime 
+          passTimeValue: passTime,
+          removeClock: document.getElementById("remove-clock").checked
         })
       }
       else {
