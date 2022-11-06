@@ -41,3 +41,7 @@ body {
 .error-message-hidden {
   display: none;
 }
+
+.checkbox-container {
+  margin-top: 10px;
+}
