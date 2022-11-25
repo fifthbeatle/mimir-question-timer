@@ -12,7 +12,7 @@ Chrome extension to add a timer onto the Wikiquiz scoring page and make passing 
 2. Extract it to a folder `mimir-question-timer`.
 3. Open your Extensions page in Chrome either by going to `chrome://extensions` or by selection "More tools" -> "Extensions" from the Chrome menu.
 4. Switch on "Developer Mode" in the top right corner.
-5. Click on "Load Unpacked" and select the folder `code` from within the folder that you extracted.
+5. Click on "Load Unpacked" and select the root folder that you downloaded (it should have the `manifest.json` file).
 
 ## Instructions for use
 1. Add the timer onto the page by clicking on the extension icon in your browser **after** starting your game.
