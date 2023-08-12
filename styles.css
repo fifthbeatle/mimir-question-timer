@@ -1,0 +1,47 @@
+#timer-section {
+  display: flex;
+  float: right;
+}
+
+#timer-button {
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-family: Menlo, Consolas, monospace;
+}
+
+.adjust-button {
+  border: none;
+  font-family: Menlo, Consolas, monospace;
+  background: none;
+  padding: 10px 10px !important;
+  box-sizing: border-box;
+  color: darkslategray;
+  font-size: 5vmin !important;
+}
+
+/* .adjust-button:hover {
+  border: 1px solid gray;
+} */
+
+.timer-button {
+  background-color: lightblue;
+}
+
+.timer-button-warning {
+  background-color: lightsalmon;
+}
+
+input.text-gray-color {
+  color: rgb(240, 240, 240);
+}
+
+.remove-stickiness {
+  position: relative !important;
+}
+
+.dashboard-sticky {
+  position: sticky;
+  top: 0;
+  height: 90px
+}

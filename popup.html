@@ -15,10 +15,27 @@
     <input type="number" name="start-duration" value="30" class="timer-input" id="input-timer-start" min="0" max="60" />
     <label for="pass-duration" class="timer-label">PASS (0-60 sec):</label>
     <input type="number" name="pass-duration" value="5" class="timer-input" id="input-timer-pass" min="0" max="60" />
+    <label for="pass-duration" class="timer-label">Adjust time inc/dec:</label>
+    <input type="number" name="pass-duration" value="5" class="timer-input" id="input-timer-adjust" min="0" max="30" />
     <button class="submit-button" id="submit-button">SET TIMER</button>
     <div class="checkbox-container">
       <input type="checkbox" id="remove-clock" checked>
       <label for="remove-clock">Remove the main clock</label>
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="keyboard-shortcuts" checked>
+      <label for="keyboard-shortcuts" id="tooltip-1-key">Keyboard Shortcuts
+        <span id="tooltip-1-text" class="tooltip">
+          A: Correct <br />
+          S: Pass <br />
+          D: Wrong <br />
+          F: Kill <br />
+          Q: Undo <br />
+          Z: Start timer <br />
+          L: Show next question
+        </span>
+      </label>
+
     </div>
     <p class="error-message error-message-hidden">Please enter the starting a value between 0-60 for starting and
       passing times</p>
