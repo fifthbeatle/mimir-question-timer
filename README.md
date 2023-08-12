@@ -10,6 +10,13 @@ Chrome extension to add a timer onto the Wikiquiz scoring page and make passing 
 
 05.02.2023: Update the `manifest.json` version to 3.
 
+13.08.20223: v2.1.0
+Changes:
+1. Refactor code
+2. Add buttons to adjust time
+3. Reset time based on direct/pass
+4. Add keyboard shortcuts
+
 ## Instructions for installation
 1. Download the zip file `mimir-question-timer.7z` using the Code button and Download Zip.
 2. Extract it to a folder `mimir-question-timer`.
@@ -21,6 +28,17 @@ Chrome extension to add a timer onto the Wikiquiz scoring page and make passing 
 1. Add the timer onto the page by clicking on the extension icon in your browser **after** starting your game.
 2. Start the timer after you finish reading the question by clicking on it.
 3. The timer for passed questions will start automatically after clicking on "Wrong"/"Pass".
+4. Keyboard shortcuts:
+   
+   |Key|Action|
+   |---|------|
+   |A|Correct|
+   |S|Pass|
+   |D|Wrong|
+   |F|Kill|
+   |Q|Undo|
+   |Z|Start/reset timer|
+   |L|Show next question|
 
 ## Contact
 1. Email me at **dsouza.arnold@gmail.com** for any clarifications or to report any bugs.
