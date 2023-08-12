@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Mimir Question Timer",
-  "version": "1.1.0",
+  "version": "2.1.0",
   "description": "Add an automatic timer button for Mimir quiz on Wikiquiz",
   "author": "Arnold D'Souza",
   "icons": {
@@ -22,7 +22,10 @@
       ],
       "js": [
         "jquery.min.js",
-        "content.js"
+        "content_2.js"
+      ],
+      "css": [
+        "styles.css"
       ]
     }
   ]

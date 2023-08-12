@@ -2,6 +2,7 @@ let spans = document.getElementsByTagName("span")
 let currentTimeValue = 0
 let startTimeValue = 0
 let passTimeValue = 0
+let onDirect = true
 const warningThreshold = 10
 let epochEndTime = null
 let interval = 100
@@ -10,16 +11,21 @@ let newQuestion = null
 
 let mutationObserver = new MutationObserver(() => {
   clearInterval(timer)
+  onDirect = true
   currentTimeValue = startTimeValue
   $("#timer-button").attr({ value: startTimeValue })
   $("#timer-button").css({ backgroundColor: "lightblue" })
   newQuestion = true
 })
 
-const spanStyles = { display: "inline-block", float: "right" }
+const spanStyles = { display: "flex", float: "right" }
 const buttonStyles = {
-  border: "none", borderRadius: "5px", padding: "15px 40px",
+  border: "none", borderRadius: "5px", padding: "15px 30px",
   backgroundColor: "lightblue", fontFamily: "Menlo, Consolas, monospace"
+}
+const timeAdjustButtonStyles = {
+  border: "none", fontFamily: "Menlo, Consolas, monospace", background: "none", padding: "10px 5px", boxSizing: "border-box",
+  color: "darkslategray", fontSize: "120%"
 }
 
 const getTimeRemaining = () => {
@@ -50,12 +56,28 @@ const createNewButton = (name, value) => {
 
   $myButton.click(() => {
     clearInterval(timer)
-    epochEndTime = new Date(new Date().getTime() + startTimeValue * 1000)
+    console.log("Button click")
+    epochEndTime = new Date(new Date().getTime() + (onDirect ? startTimeValue : passTimeValue) * 1000)
     currentTimeValue = startTimeValue
 
     timer = setInterval(startTimer, interval)
   })
+
+  const $minusTimeButton = $('<input>').attr({ id: "minus-time-button", value: "-", type: "button" }).css(timeAdjustButtonStyles)
+  $minusTimeButton.click(() => {
+    console.log("Minus click");
+    // epochEndTime -= 5000
+  })
+
+  const $addTimeButton = $('<input>').attr({ id: "add-time-button", value: "+", type: "button" }).css(timeAdjustButtonStyles)
+  $addTimeButton.click(() => {
+    console.log("Add click");
+    // epochEndTime += 5000
+  })
+
+  $mySpan.append($minusTimeButton[0])
   $mySpan.append($myButton[0])
+  $mySpan.append($addTimeButton[0])
   $target.append($mySpan[0])
 
   //Add an observer to watch for changes to the Question Number
@@ -85,6 +107,7 @@ function correctButtonHandler() {
 function passWrongButtonHandler() {
   if (!newQuestion) {
     clearInterval(timer)
+    onDirect = false
     currentTimeValue = passTimeValue
     $("#timer-button").attr({ value: passTimeValue })
     $("#timer-button").css({ backgroundColor: "lightpink" })
@@ -122,7 +145,7 @@ chrome.runtime.onMessage.addListener((request, _sender, _response) => {
   } else {
     console.log("Button already exists.")
   }
-  if(removeClock) {
+  if (removeClock) {
     hideClock()
   } else {
     removeClockStickiness()

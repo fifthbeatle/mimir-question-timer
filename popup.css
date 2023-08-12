@@ -5,11 +5,11 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 200px;
 }
 
 .timer-label {
-  /* padding: 10px; */
+  margin-top: 10px;
   margin-bottom: 10px;
   font-weight: bold;
 }
@@ -44,4 +44,34 @@ body {
 
 .checkbox-container {
   margin-top: 10px;
+}
+
+#tooltip-1-key {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+#tooltip-1-key #tooltip-1-text {
+  visibility: hidden;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+  background-color: lightgoldenrodyellow;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#tooltip-1-key:hover #tooltip-1-text {
+  visibility: visible;
 }
