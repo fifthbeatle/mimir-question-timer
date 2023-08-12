@@ -9,7 +9,7 @@ let totalPlayers = 0;
 let currentPlayer = 0;
 
 //CONSTANTS
-const INTERVAL = 400; //heart beat for the timer
+const INTERVAL = 100;
 const WARNING_THRESHOLD = 10;
 
 let timer = null;
