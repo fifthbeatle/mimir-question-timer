@@ -4,6 +4,7 @@ let adjustTimeValue = 5;
 let hideStandardClock = true;
 let epochEndTime; //Javascript Date object
 let keyboardShortcuts = false;
+let timerAlreadyExists = false;
 
 let totalPlayers = 0;
 let currentPlayer = 0;
@@ -24,6 +25,7 @@ function setInitialValues(request) {
   adjustTimeValue = request.adjustTimeValue;
   hideStandardClock = request.removeClock;
   keyboardShortcuts = request.keyboardShortcuts;
+  timerAlreadyExists = $('#timer-button').length > 0
 }
 
 function getCurrentPlayer() {
@@ -51,7 +53,7 @@ function startTimer() {
 }
 
 function addButtons() {
-  if ($('#timer-button').length === 0) {
+  if (!timerAlreadyExists) {
     const $targetElement = $('.tablecell3')
     const $newSpan = $('<span/>').attr({ id: 'timer-section' })
 
@@ -219,7 +221,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
   setButtonLogic();
   setPassCorrectLogic();
 
-  if (keyboardShortcuts) {
+  if (keyboardShortcuts && !timerAlreadyExists) {
     addKeyboardShortcuts();
   }
 
