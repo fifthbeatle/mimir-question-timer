@@ -18,7 +18,8 @@ submitButton.addEventListener("click", (e) => {
           passTimeValue: passTime,
           adjustTimeValue: adjustTime,
           removeClock: document.getElementById("remove-clock").checked,
-          keyboardShortcuts: document.getElementById("keyboard-shortcuts").checked
+          keyboardShortcuts: document.getElementById("keyboard-shortcuts").checked,
+          showReader: document.getElementById("show-reader").checked
         })
         window.close();
       }

@@ -5,6 +5,7 @@ let hideStandardClock = true;
 let epochEndTime; //Javascript Date object
 let keyboardShortcuts = false;
 let timerAlreadyExists = false;
+let showReader = false;
 
 let totalPlayers = 0;
 let currentPlayer = 0;
@@ -22,6 +23,7 @@ function setInitialValues(request) {
   currentPlayer = Math.max(getCurrentPlayer(), 0);
   directTime = request.startTimeValue;
   passTime = request.passTimeValue;
+  showReader = request.showReader;
   adjustTimeValue = request.adjustTimeValue;
   hideStandardClock = request.removeClock;
   keyboardShortcuts = request.keyboardShortcuts;
@@ -91,6 +93,23 @@ function setButtonLogic() {
       timer = setInterval(startTimer, INTERVAL)
     }
   })
+
+  $("#text-to-voice-button").click(() => {
+    const text = $("#ques_text").text();
+
+    let utterance = new SpeechSynthesisUtterance();
+
+    // Set the text and voice of the utterance
+    utterance.text = text;
+    // console.log(window.speechSynthesis.getVoices())
+    // console.log(utterance)
+    utterance.voice = window.speechSynthesis.getVoices()[3];
+    utterance.volume = 5;
+
+    // Speak the utterance
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  })
 }
 
 function correctButtonHandler() {
@@ -126,7 +145,7 @@ function passWrongButtonHandler() {
 
 function undoEventHandler() {
   //TODO: Write the event handler for undo
-  currentPlayer -= 1;
+  currentPlayer = currentPlayer === 0 ? totalPlayers - 1 : currentPlayer - 1;
   clearInterval(timer)
 
   if (currentPlayer === 0) {
@@ -135,10 +154,6 @@ function undoEventHandler() {
     onDirect = true
   } else {
     $("#timer-button").attr({ value: passTime })
-  }
-
-  if (currentPlayer === -1) {
-    currentPlayer == 3
     onDirect = false
   }
 
@@ -214,12 +229,23 @@ function addShowNextQuestionShortcut() {
   }
 }
 
+function addTextToVoice() {
+  const $timerSection = $('#timer-section')
+  const $textToVoiceButton = $('<input/>').attr({ type: "button", value: "Read", id: "text-to-voice-button", class: "voice-button" })
+
+  $timerSection.prepend($textToVoiceButton)
+}
+
 chrome.runtime.onMessage.addListener((request, sender, response) => {
   setInitialValues(request);
 
   addButtons();
+  if (showReader) {
+    addTextToVoice();
+  }
   setButtonLogic();
   setPassCorrectLogic();
+
 
   if (keyboardShortcuts && !timerAlreadyExists) {
     addKeyboardShortcuts();
