@@ -5,7 +5,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 250px;
 }
 
 .timer-label {
@@ -74,4 +74,22 @@ body {
 /* Show the tooltip text when you mouse over the tooltip container */
 #tooltip-1-key:hover #tooltip-1-text {
   visibility: visible;
+}
+
+.voice-options {
+  margin-top: 10px;
+}
+
+.voice-options-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+#speech-rate {
+  width: 40px;
+}
+
+.hide-voice-options {
+  display: none;
 }

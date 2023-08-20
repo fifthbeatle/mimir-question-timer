@@ -1,10 +1,13 @@
 let directTime = 0;
 let passTime = 0;
 let adjustTimeValue = 5;
+let speechRate = 1;
+let voiceType = 3;
 let hideStandardClock = true;
 let epochEndTime; //Javascript Date object
 let keyboardShortcuts = false;
 let timerAlreadyExists = false;
+let readButtonAlreadyExists = false;
 let showReader = false;
 
 let totalPlayers = 0;
@@ -28,6 +31,10 @@ function setInitialValues(request) {
   hideStandardClock = request.removeClock;
   keyboardShortcuts = request.keyboardShortcuts;
   timerAlreadyExists = $('#timer-button').length > 0
+  readButtonAlreadyExists = $('#text-to-voice-button').length > 0
+  console.log({ speechRate, voiceType })
+  speechRate = request.speechRate
+  voiceType = request.voiceType
 }
 
 function getCurrentPlayer() {
@@ -101,9 +108,8 @@ function setButtonLogic() {
 
     // Set the text and voice of the utterance
     utterance.text = text;
-    // console.log(window.speechSynthesis.getVoices())
-    // console.log(utterance)
-    utterance.voice = window.speechSynthesis.getVoices()[3];
+    utterance.rate = speechRate || 1
+    utterance.voice = window.speechSynthesis.getVoices()[voiceType || 3];
     utterance.volume = 5;
 
     // Speak the utterance
@@ -237,12 +243,14 @@ function addTextToVoice() {
 }
 
 chrome.runtime.onMessage.addListener((request, sender, response) => {
+  console.log(request)
   setInitialValues(request);
 
   addButtons();
-  if (showReader) {
+  if (showReader && !readButtonAlreadyExists) {
     addTextToVoice();
   }
+
   setButtonLogic();
   setPassCorrectLogic();
 
