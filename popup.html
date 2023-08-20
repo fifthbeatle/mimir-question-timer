@@ -23,10 +23,6 @@
       <label for="remove-clock">Remove the main clock</label>
     </div>
     <div class="checkbox-container">
-      <input type="checkbox" id="show-reader">
-      <label for="show-reader">Add an auto voice reader</label>
-    </div>
-    <div class="checkbox-container">
       <input type="checkbox" id="keyboard-shortcuts" checked>
       <label for="keyboard-shortcuts" id="tooltip-1-key">Keyboard Shortcuts
         <span id="tooltip-1-text" class="tooltip">
@@ -39,7 +35,53 @@
           L: Show next question
         </span>
       </label>
-
+    </div>
+    <div class="checkbox-container">
+      <input type="checkbox" id="show-reader">
+      <label for="show-reader">Add an auto voice reader</label>
+    </div>
+    <div class="voice-options hide-voice-options">
+      <div class="voice-options-container">
+        <label for="speech-rate">Speed:</label>
+        <select id="speech-rate" name="speech-rate">
+          <option value="0.5">0.5</option>
+          <option value="0.75">0.75</option>
+          <option value="1" selected>1</option>
+          <option value="1.25">1.1</option>
+          <option value="1.25">1.25</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+      <div class="voice-options-container">
+        <label for="voice-type">Voice:</label>
+        <select id="voice-type" name="voices">
+          <option value="1">George - English (United Kingdom)</option>
+          <option value="2">Hazel - English (United Kingdom)</option>
+          <option value="3" selected>Susan - English (United Kingdom)</option>
+          <option value="4">Heera - English (India)</option>
+          <option value="5">Ravi - English (India)</option>
+          <option value="6">Google Deutsch</option>
+          <option value="7">Google US English</option>
+          <option value="8">Google UK English Female</option>
+          <option value="9">Google UK English Male</option>
+          <option value="10">Google español</option>
+          <option value="11">Google español de Estados Unidos</option>
+          <option value="12">Google français</option>
+          <option value="13">Google हिन्दी</option>
+          <option value="14">Google Bahasa Indonesia</option>
+          <option value="15">Google italiano</option>
+          <option value="16">Google 日本語</option>
+          <option value="17">Google 한국의</option>
+          <option value="18">Google Nederlands</option>
+          <option value="19">Google polski</option>
+          <option value="20">Google português do Brasil</option>
+          <option value="21">Google русский</option>
+          <option value="22">Google 普通话（中国大陆）</option>
+          <option value="23">Google 粤語（香港）</option>
+          <option value="23">Google 國語（臺灣）</option>
+        </select>
+      </div>
     </div>
     <p class="error-message error-message-hidden">Please enter the starting a value between 0-60 for starting and
       passing times</p>

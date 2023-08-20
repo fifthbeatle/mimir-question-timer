@@ -3,6 +3,11 @@ const queryParams = {
   active: true,
   currentWindow: true
 }
+
+document.getElementById("show-reader").addEventListener("click", () => {
+  document.getElementsByClassName("voice-options")[0].classList.toggle("hide-voice-options");
+})
+
 submitButton.addEventListener("click", (e) => {
   chrome.tabs.query(queryParams, (tabs) => {
     if (tabs[0].url.includes("wikiquiz.org/Quiz_Scorer_App.html#/!/IQM")) {
@@ -19,7 +24,9 @@ submitButton.addEventListener("click", (e) => {
           adjustTimeValue: adjustTime,
           removeClock: document.getElementById("remove-clock").checked,
           keyboardShortcuts: document.getElementById("keyboard-shortcuts").checked,
-          showReader: document.getElementById("show-reader").checked
+          showReader: document.getElementById("show-reader").checked,
+          speechRate: parseFloat(document.getElementById("speech-rate").value),
+          voiceType: parseInt(document.getElementById("voice-type").value) - 1,
         })
         window.close();
       }
